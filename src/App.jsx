@@ -1,5 +1,6 @@
  import { useState } from 'react'
 import './App.css'
+import Clientes from './Clientes.jsx'
 
 const menuItems = [
   { id: 'inicio', icon: '🏠', label: 'Inicio' },
@@ -125,21 +126,22 @@ function App() {
       )
     }
 
-    return (
-      <section className="module-placeholder">
-        <div className="module-icon">{activeItem?.icon}</div>
-        <span className="welcome-label">MÓDULO</span>
-        <h1>{activeItem?.label}</h1>
-        <p>
-          Este módulo será desarrollado en el siguiente paso.
-        </p>
-        <button onClick={() => setActiveView('inicio')}>
-          ← Volver al inicio
-        </button>
-      </section>
-    )
-  }
+   if (activeView === 'clientes') {
+  return <Clientes />
+}
 
+return (
+  <section className="module-placeholder">
+    <div className="module-icon">{activeItem?.icon}</div>
+    <span className="welcome-label">MÓDULO</span>
+    <h1>{activeItem?.label}</h1>
+    <p>Este módulo será desarrollado en el siguiente paso.</p>
+    <button onClick={() => setActiveView('inicio')}>
+      ← Volver al inicio
+    </button>
+  </section>
+)
+}
   return (
     <div className="app">
       <aside className="sidebar">
